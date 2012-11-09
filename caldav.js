@@ -2988,8 +2988,7 @@ function write (chunk) {
         content += this.filter.toString();
       }
 
-      var out = this.template.render(content);
-      return out;
+      return this.template.render(content);
     }
 
   };
@@ -3077,6 +3076,7 @@ function write (chunk) {
         if (!principal) {
           principal = findProperty('principal-URL', data, true);
         }
+        
         if ('unauthenticated' in principal) {
           callback(new Errors.UnauthenticatedError());          
         } else if (principal.href){
